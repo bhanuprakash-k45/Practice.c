@@ -20,5 +20,16 @@ printf("Student id %i\n",studentId);
 printf("student age %i\n",studentAge);
 printf("student fee %lf\n",studentFee);
 printf("student grade %c\n",studentGrade);
+char letter[]="hello world";
+printf("hello %s\n",letter);
+printf("Hello world\n");
+int myInt;
+float myFloat;
+double myDouble;
+char myChar;
+printf("%zu\n", sizeof(myInt));
+printf("%zu\n", sizeof(myFloat));
+printf("%zu\n",sizeof(myDouble));
+printf("%zu\n", sizeof(myChar));
 return 0;
 }
