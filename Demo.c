@@ -6,9 +6,6 @@ int main() {
   printf("ASCII value of 66 is %c\n", b);
   printf("ASCII value of 67 is %c\n", c);
   
-
-
-
 //student data
 
 int studentId=07;
