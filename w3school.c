@@ -45,6 +45,27 @@ printf("%f\n",score);
   // Print grade
 printf("%c\n",grade);
 
+
+//type conversion
+//implicit type conversion
+  float myFloat=9;
+  printf("%f\n",myFloat);
+  int myInt=9.99;
+  printf("%d\n",myInt);
+//explicit type conversion
+  float sum=(float) 5/2;
+  printf("%f\n",sum);
+  int num1=5;
+  int num2=2;
+  float result=(float) num1/num2;
+  printf("%.1f\n",result);
+
+//Real life example of type conversion
+  int maxScore=654;
+  int userScore=389;
+  float percentage=(float) userScore/maxScore*100.0;
+  printf("User's percentage is %.2f",percentage);
+
     return 0;
     
 }
