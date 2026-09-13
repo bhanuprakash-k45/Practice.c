@@ -30,8 +30,22 @@ int main(){
     printf("size of unsigned long long int: %zu bytes\n", sizeof(unsigned long long int));
     printf("size of long double: %zu bytes\n", sizeof(long double));
 
+//small code challenge by w3schools
+    int main() {
+  // Write studentID here
+int studentID=07;
+  // Write score here
+float score=64.20;
+  // Write grade here
+char grade='A';
 
-    
+  // Print studentID
+printf("%d\n",studentID);
+  // Print score
+printf("%f\n",score);
+  // Print grade
+printf("%c\n",grade);
+
     return 0;
     
 }
