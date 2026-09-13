@@ -31,7 +31,6 @@ int main(){
     printf("size of long double: %zu bytes\n", sizeof(long double));
 
 //small code challenge by w3schools
-    int main() {
   // Write studentID here
 int studentID=07;
   // Write score here
