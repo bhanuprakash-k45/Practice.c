@@ -19,6 +19,19 @@ int main(){
     printf("Very Big: %lld\n", veryBig);
     printf("Huge: %llu\n", huge);
     printf("Precise: %.15f\n", precise);
+
+//checking the size of data types
+    printf("Size of int: %zu bytes\n",sizeof(int));
+    printf("size of double: %zu bytes\n", sizeof(double));
+    printf("size of short int: %zu bytes\n", sizeof(short int));
+    printf("size of unsigned int: %zu bytes\n", sizeof(unsigned int));
+    printf("size of long int: %zu bytes\n", sizeof(long int));
+    printf("size of long long int: %zu bytes\n", sizeof(long long int));
+    printf("size of unsigned long long int: %zu bytes\n", sizeof(unsigned long long int));
+    printf("size of long double: %zu bytes\n", sizeof(long double));
+
+
+    
     return 0;
     
 }
