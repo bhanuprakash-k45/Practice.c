@@ -42,7 +42,17 @@ int main(){
     savings += 50;
     printf("%d\n",savings);
 
-    
+
+    //comparison operators
+    int a=5;
+    int b=3;
+    printf("%d\n",a>b);
+    printf("%d\n",a<b);
+    //Example
+    int age=18;
+    printf("%d\n",age>=18);
+    printf("%d\n",age<=18);
+    printf("%d\n",age<18);
 
 
 
