@@ -53,6 +53,29 @@ int main(){
     printf("%d\n",age>=18);
     printf("%d\n",age<=18);
     printf("%d\n",age<18);
+    
+    //logical operators
+    int isLoggedIn=1;
+    int isAdmin=0;
+    printf("regular user: %d\n",isLoggedIn && isAdmin);
+    printf("has acess: %d\n",isLoggedIn || isAdmin);
+    printf("not lofffed in: %d\n", !isLoggedIn);
+
+    //operator Precedence
+    int result1=2+3*4;
+    int result2=(2+3)*4;
+    printf("%d\n",result1);
+    printf("%d\n",result2);
+    /*
+    () - Parentheses
+    *, /, % - Multiplication, Division, Modulus
+    +, - - Addition, Subtraction
+    >, <, >=, <= - Comparison
+    ==, != - Equality
+    && - Logical AND
+    || - Logical OR
+    = - Assignment 
+    */
 
 
 
