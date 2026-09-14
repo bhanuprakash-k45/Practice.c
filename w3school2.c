@@ -77,6 +77,16 @@ int main(){
     = - Assignment 
     */
 
+    //code chaallenge
+      // Write itemPrice here
+int itemPrice=50;
+  // Write shippingCost here
+int shippingCost=10;
+  // Write sum here (itemPrice + shippingCost)
+int sum=itemPrice+shippingCost;
+  // Print sum here
+printf("%d",sum);
+
 
 
   return 0;
