@@ -20,5 +20,14 @@ printf("%d\n",15==5);
 
 bool isGreater=x>y;
 printf("%d\n",isGreater);
+
+int myAge=25;
+int votingAge=18;
+printf("%d\n",myAge>=votingAge);
+if(myAge >= votingAge){
+    printf("Old enough to vote!");
+}else{
+    printf("Not old enough to vote.");
+}
 return 0;
 }
