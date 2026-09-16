@@ -24,8 +24,8 @@ int main(){
         printf("Good evening.\n");
     }
     //using boolean variable
-    bool isDay=time<18;
-    if(isDay){
+    bool isDay1=time<17;
+    if(isDay1){
         printf("Good day.");
     }
     else
@@ -57,6 +57,10 @@ int main(){
     else{
         ("Good evening");
     }
+
+    //short hand if else
+    int time1=20;
+    (time1<18)?printf("Good day."):printf("Good evening.");
 
 
     return 0;
