@@ -29,5 +29,12 @@ if(myAge >= votingAge){
 }else{
     printf("Not old enough to vote.");
 }
+  // Declare and assign age
+int age=19;
+  // Declare and assign minAge
+int minAge=18;
+  // Print the result of: age >= minAge
+printf("%d",age >= minAge);
+
 return 0;
 }
