@@ -84,13 +84,60 @@ int age1=19;
   // Write an if statement that checks if age >= 18
 if(age1>=18){
   // If true, print "Allowed" inside the if block
-printf("Allowd");
+printf("Allowd\n\n");
 }
   // Write an else statement
 else{
   // Inside the else block, print "Not allowed"
 printf("Not allowd");
 }
+
+/*Switch Statement*/
+int day=4;
+
+switch (day){
+    case 1:
+    printf("Monday");
+    break;
+    case 2:
+    printf("Tuuesday");
+    break;
+    case 3:
+    printf("Wednesday");
+    break;
+    case 4:
+    printf("Thursday");
+    break;
+    case 5:
+    printf("Friday");
+    break;
+    case 6:
+    printf("Saturday");
+    break;
+    case 7:
+    printf("Sunday");
+    default:
+    printf("Looking forward to the weekend");
+}
+    //Code challenge
+    int choice = 1;
+
+  // 1 = Coffee
+  // 2 = Tea
+
+  switch (choice) {
+    case 1:
+      printf("\nYou ordered Coffee");
+      break;
+
+    case 2:
+      printf("You ordered Tea");
+      break;
+	
+	default:
+      printf("Invalid choice");
+  }
+
 
 
 
