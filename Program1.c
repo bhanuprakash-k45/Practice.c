@@ -10,12 +10,23 @@ struct Book
     char status[10];
 };
 
-struct Book *create(int n)
+struct Book *addBooks(struct Book *b, int *currentCount, int newCount)
 {
-    struct Book *b = malloc(n * sizeof(struct Book));
-    int i;
+    int totalCount = *currentCount + newCount;
 
-    for(i = 0; i < n; i++)
+    // Expand the allocated memory block to hold the new total
+    struct Book *temp = realloc(b, totalCount * sizeof(struct Book));
+
+    if (temp == NULL)
+    {
+        printf("Memory allocation failed!\n");
+        return b;
+    }
+
+    b = temp;
+
+    // Populate only the newly added indices
+    for (int i = *currentCount; i < totalCount; i++)
     {
         printf("\nBook %d\n", i + 1);
 
@@ -33,83 +44,115 @@ struct Book *create(int n)
 
         strcpy(b[i].status, "Available");
     }
+
+    // Update the total count
+    *currentCount = totalCount;
+
     return b;
 }
 
 void display(struct Book *b, int n)
 {
-    int i;
-
     printf("\n--- Available Books ---\n");
 
-    for(i = 0; i < n; i++)
-        if(strcmp(b[i].status, "Available") == 0)
-            printf("\nID: %d\nTitle: %s\nAuthor: %s\nPrice: %.2f\nStatus: %s\n",
-                   b[i].id, b[i].title, b[i].author,
-                   b[i].price, b[i].status);
+    int found = 0;
+
+    for (int i = 0; i < n; i++)
+    {
+        if (strcmp(b[i].status, "Available") == 0)
+        {
+            printf("\nID: %d\n", b[i].id);
+            printf("Title: %s\n", b[i].title);
+            printf("Author: %s\n", b[i].author);
+            printf("Price: %.2f\n", b[i].price);
+            printf("Status: %s\n", b[i].status);
+
+            found = 1;
+        }
+    }
+
+    if (!found)
+    {
+        printf("No available books found.\n");
+    }
 }
 
 void search(struct Book *b, int n)
 {
-    int id, i;
+    int id;
 
     printf("Enter Book ID: ");
     scanf("%d", &id);
 
-    for(i = 0; i < n; i++)
-        if(b[i].id == id)
+    for (int i = 0; i < n; i++)
+    {
+        if (b[i].id == id)
         {
-            printf("\nID: %d\nTitle: %s\nAuthor: %s\nPrice: %.2f\nStatus: %s\n",
-                   b[i].id, b[i].title, b[i].author,
-                   b[i].price, b[i].status);
+            printf("\nID: %d\n", b[i].id);
+            printf("Title: %s\n", b[i].title);
+            printf("Author: %s\n", b[i].author);
+            printf("Price: %.2f\n", b[i].price);
+            printf("Status: %s\n", b[i].status);
+
             return;
         }
+    }
 
     printf("Book not found.\n");
 }
 
 void issueBook(struct Book *b, int n)
 {
-    int id, i;
+    int id;
 
     printf("Enter Book ID: ");
     scanf("%d", &id);
 
-    for(i = 0; i < n; i++)
-        if(b[i].id == id)
+    for (int i = 0; i < n; i++)
+    {
+        if (b[i].id == id)
         {
-            if(strcmp(b[i].status, "Available") == 0)
+            if (strcmp(b[i].status, "Available") == 0)
             {
                 strcpy(b[i].status, "Issued");
                 printf("Book issued successfully.\n");
             }
             else
+            {
                 printf("Book is already issued.\n");
+            }
+
             return;
         }
+    }
 
     printf("Book not found.\n");
 }
 
 void returnBook(struct Book *b, int n)
 {
-    int id, i;
+    int id;
 
     printf("Enter Book ID: ");
     scanf("%d", &id);
 
-    for(i = 0; i < n; i++)
-        if(b[i].id == id)
+    for (int i = 0; i < n; i++)
+    {
+        if (b[i].id == id)
         {
-            if(strcmp(b[i].status, "Issued") == 0)
+            if (strcmp(b[i].status, "Issued") == 0)
             {
                 strcpy(b[i].status, "Available");
                 printf("Book returned successfully.\n");
             }
             else
+            {
                 printf("Book is already available.\n");
+            }
+
             return;
         }
+    }
 
     printf("Book not found.\n");
 }
@@ -117,58 +160,87 @@ void returnBook(struct Book *b, int n)
 int main()
 {
     struct Book *b = NULL;
-    int n = 0, ch;
+
+    int n = 0;
+    int newBooks = 0;
+    int ch;
 
     do
     {
         printf("\n===== LIBRARY MENU =====\n");
         printf("1. Add Book Records\n");
-        printf("2. Display All Book Records\n");
+        printf("2. Display Available Book Records\n");
         printf("3. Search Book by Book ID\n");
         printf("4. Issue a Book\n");
         printf("5. Return a Book\n");
         printf("6. Exit\n");
+
         printf("Enter choice: ");
         scanf("%d", &ch);
 
-        switch(ch)
+        switch (ch)
         {
             case 1:
-                printf("Enter number of books: ");
-                scanf("%d", &n);
+                printf("Enter number of books to add: ");
+                scanf("%d", &newBooks);
 
-                if(b != NULL)
-                    free(b);
+                if (newBooks > 0)
+                {
+                    b = addBooks(b, &n, newBooks);
+                }
+                else
+                {
+                    printf("Invalid number of books.\n");
+                }
 
-                b = create(n);
                 break;
 
             case 2:
-                if(b != NULL)
+                if (b != NULL && n > 0)
+                {
                     display(b, n);
+                }
                 else
+                {
                     printf("Add books first.\n");
+                }
+
                 break;
 
             case 3:
-                if(b != NULL)
+                if (b != NULL && n > 0)
+                {
                     search(b, n);
+                }
                 else
+                {
                     printf("Add books first.\n");
+                }
+
                 break;
 
             case 4:
-                if(b != NULL)
+                if (b != NULL && n > 0)
+                {
                     issueBook(b, n);
+                }
                 else
+                {
                     printf("Add books first.\n");
+                }
+
                 break;
 
             case 5:
-                if(b != NULL)
+                if (b != NULL && n > 0)
+                {
                     returnBook(b, n);
+                }
                 else
+                {
                     printf("Add books first.\n");
+                }
+
                 break;
 
             case 6:
@@ -179,8 +251,9 @@ int main()
                 printf("Invalid choice.\n");
         }
 
-    } while(ch != 6);
+    } while (ch != 6);
 
     free(b);
+
     return 0;
 }
