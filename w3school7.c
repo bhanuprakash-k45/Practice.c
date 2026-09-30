@@ -22,7 +22,7 @@ int main(){
     for(b=5;b>0;b--){
         printf("%d\n",b);
     }
-    int i, j;
+    int  j;
 
 // Outer loop
 for (i = 1; i <= 2; ++i) {
