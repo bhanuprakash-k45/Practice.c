@@ -12,9 +12,17 @@ for(i=1;i<=5;i++){
 	printf("%d",i);
 }
 //break stops the loop when i is equal to 4
+//stop the loop completely.
 for (i = 0; i < 10; i++) {
   if (i == 4) {
     break;
+  }
+  printf("%d\n", i);
+}
+//skip this round, but keep looping.
+for (i = 0; i < 10; i++) {
+  if (i == 4) {
+    continue;
   }
   printf("%d\n", i);
 }
