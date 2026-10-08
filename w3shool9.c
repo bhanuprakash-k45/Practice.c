@@ -51,6 +51,19 @@ printf("Example,lowest age\n");
   }
  
   // Output the value of the lowest age
-  printf("The lowest age in the array is: %d", lowestAge);
+  printf("The lowest age in the array is: %d\n", lowestAge);
+
+//Multi dimentional array
+int matrix[2][3] = { {1, 4, 2}, {3, 6, 8} };
+  printf("%d\n", matrix[0][2]);
+
+  int matrix1[2][3] = { {1, 4, 2}, {3, 6, 8} };
+
+  int i1, j;
+  for (i1 = 0; i1 < 2; i1++) {
+    for (j = 0; j < 3; j++) {
+      printf("%d\n", matrix1[i1][j]);
+    }
+  }
     return 0;
 }
